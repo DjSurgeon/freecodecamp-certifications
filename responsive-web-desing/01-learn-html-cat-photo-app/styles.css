@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Monserrat", sans-serif;
+  background-color: beige;
+  width: 80%;
+  margin: 0 auto;
+}
+.title__one {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+.title__two {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.7rem;
+}
+.title__three {
+  font-size: 1.5rem;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+.card__one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.card__two {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+}
+.round-image {
+  border-radius: 100%;
+  box-shadow: 0 0 10px black;
+}
+.form__one {
+  width: 75%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.form__one fieldset {
+  margin: 1rem;
+  padding: 0.7rem;
+  box-shadow: -2px 2px 3px black;
+}
+.form__one legend {
+  font-weight: bold;
+}
+.form__two {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__two input{
+  box-shadow: -2px -2px 5px black;
+}
+.form__button {
+  margin: 0.7rem;
+  box-shadow: -2px -2px 4px gray;
+}
+.footer {
+  text-align: center;
+  font-size: 0.7rem;
+}
