@@ -89,18 +89,18 @@ const locations = [
 const monsters = [
   {
     name: "slime",
-    level: 2,
+    level: 0,
     health: 15,
   },
   {
     name: "fanged beast",
-    level: 8,
-    health: 60,
+    level: 10,
+    health: 50,
   },
   {
     name: "dragon",
     level: 20,
-    health: 300,
+    health: 200,
   },
 ];
 
@@ -115,6 +115,7 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+const monsterLevel = document.querySelector("#monsterLevel");
 
 // Initialize buttons
 button1.onclick = goStore;
@@ -148,19 +149,23 @@ function goFight() {
   monsterHealth = monsters[fighting].health;
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsters[fighting].health;
+  monsterLevel.innerText = monsters[fighting].level;
 }
 // Fight Functions
 function fightSlime() {
   fighting = 0;
   goFight();
+  monsters[fighting].level = getLevel(10);
 }
 function fightBeast() {
   fighting = 1;
   goFight();
+  monsters[fighting].level = getLevel(20);
 }
 function fightDragon() {
   fighting = 2;
   goFight();
+  monsters[fighting].level = getLevel(30);
 }
 function attack() {
   text.innerText = `The ${monsters[fighting].name} attacks.`;
@@ -295,3 +300,8 @@ function pickTwo() {
 function pickEight() {
   pick(8);
 }
+// New Addons
+function getLevel(randomLevel) {
+  return Math.floor(Math.random() * randomLevel + 1);
+}
+
