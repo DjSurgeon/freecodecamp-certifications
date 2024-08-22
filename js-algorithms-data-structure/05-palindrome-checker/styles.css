@@ -1,0 +1,38 @@
+html {
+    background-color: blanchedalmond;
+  }
+  .title__h1 {
+    text-align: center;
+    margin: 4rem auto;
+  }
+  .h1__size {
+    font-size: 4rem;
+  }
+  .h1__font {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .title__h2 {
+    text-align: center;
+    padding: 2rem;
+    color: aliceblue;
+  }
+  .h2__size {
+    font-size: 2rem;
+  }
+  .h2__font {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .card__container {
+    background-color: gray;
+    border-radius: 30px;
+    width: 80%;
+    height: 20rem;
+    margin: 0 auto;
+  }
+  .card__checker {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  
