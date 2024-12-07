@@ -34,7 +34,7 @@ h1 {
 }
 
 .rules-container {
-  display: none;
+  display: block;
   background-color: var(--light-grey);
   color: var(--black);
   width: 50%;
