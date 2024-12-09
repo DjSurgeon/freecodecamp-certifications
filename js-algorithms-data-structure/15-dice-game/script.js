@@ -33,7 +33,7 @@ const rulesWindow = () => {
 }
 const rollDices = () => {
     diceValuesArr.length = 0;
-    for(let i=0; i<5; i++) {
+    for (let i = 0; i < 5; i++) {
         diceValuesArr.push((Math.floor((Math.random() * 6) + 1)));
         listOfAllDice[i].innerText = `${diceValuesArr[i]}`
     }
@@ -44,15 +44,68 @@ const updateStats = () => {
     roundElement.innerText = `${round}`;
 }
 
+const updateRadioOption = (index, scoreValue) => {
+    scoreInputs[index].disabled = false;
+    scoreInputs[index].value = scoreValue;
+    scoreSpans[index].innerText = `, score = ${scoreValue}`;
+}
+
+const getHighestDuplicates = (arr) => {
+    const counts = {};
+
+    for (const num of arr) {
+        if (counts[num]) {
+            counts[num]++;
+        } else {
+            counts[num] = 1;
+        }
+    }
+
+    let highestCount = 0;
+
+    for (const num of arr) {
+        const count = counts[num];
+        if (count >= 3 && count > highestCount) {
+            highestCount = count;
+        }
+        if (count >= 4 && count > highestCount) {
+            highestCount = count;
+        }
+    }
+
+    const sumOfAllDice = arr.reduce((a, b) => a + b, 0);
+
+    if (highestCount >= 4) {
+        updateRadioOption(1, sumOfAllDice);
+    }
+
+    if (highestCount >= 3) {
+        updateRadioOption(0, sumOfAllDice);
+    }
+
+    updateRadioOption(5, 0);
+};
+
+const resetRadioOptions = () => {
+    scoreInputs.forEach((input) => {
+      input.disabled = true;
+      input.checked = false;
+    });
+  
+    scoreSpans.forEach((span) => {
+      span.textContent = "";
+    });
+  };
 // Click Events
 rulesBtn.addEventListener("click", rulesWindow)
 rollDiceBtn.addEventListener("click", () => {
     if (rolls < 3) {
-    rolls++;
-    rollDices();
-    updateStats();
+        rolls++;
+        rollDices();
+        updateStats();
+        getHighestDuplicates(diceValuesArr);
     }
     else {
-      alert("You have made three rolls this round. Please select a score.");
+        alert("You have made three rolls this round. Please select a score.");
     }
-  });
+});
